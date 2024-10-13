@@ -1,0 +1,21 @@
+{
+  "name": "cloudtay/nos",
+  "license": "MIT",
+  "description": "nos for ripple",
+  "version": "v0.1",
+  "authors": [
+    {
+      "name": "cclilshy",
+      "email": "jingnigg@gmail.com"
+    }
+  ],
+  "require": {
+    "cloudtay/nos-library": "*",
+    "amphp/mysql": "^3.0.0"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.64"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
