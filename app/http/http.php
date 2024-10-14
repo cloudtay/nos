@@ -21,10 +21,10 @@ use Psc\Worker\Manager;
 
     Package::import('example');
     Package::import('readme');
-    //    Package::import('benchmarks');
+    Package::import('benchmarks');
 });
 
-$worker = new class (\getenv('NOS_HTTP_LISTEN'), \getenv('NOS_HTTP_COUNT')) extends \Psc\Worker\Worker {
+$worker = new class (\getenv('NOS_HTTP_LISTEN'), \getenv('NOS_HTTP_WORKERS')) extends \Psc\Worker\Worker {
     /*** @var string */
     protected string $listen = 'http://127.0.0.1:8008';
 

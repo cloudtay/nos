@@ -7,8 +7,8 @@ use Cloudtay\Nos\Package;
 use Psc\Core\Http\Server\Chunk;
 use Psc\Core\Http\Server\Request;
 
-//Data::$mysqlConnectionPool = Package::import('database/mysql-readme');
-Data::$faviconBinary = Package::import('static/favicon.ico');
+Data::$mysqlConnectionPool = Package::import('database/mysql-tfb');
+Data::$faviconBinary       = Package::import('static/favicon.ico');
 
 Route::define(Method::GET, '/door1', function (Request $request) {
     $request->respond('is door1.');
@@ -76,22 +76,22 @@ Route::define(Method::GET, '/snail-stop', function (Request $request) {
     }
 
     if (isset(Data::$list[$id])) {
-        Data::$list[$id]->write(Chunk::chunk('stoooooooooop!'));
+        Data::$list[$id]->write(Chunk::chunk('stop!'));
         Data::$list[$id]->close();
-        $request->respond('snail ' . $id . ' is gone.');
+        $request->respond("snail {$id} is gone.");
     } else {
-        $request->respond('snail ' . $id . ' is not found.');
+        $request->respond("snail {$id} is not found.");
     }
 });
 
-//Route::define(\Psc\Core\Http\Enum\Method::GET, '/db', function (Request $request) use (&$dateFormatted) {
-//    $once = Data::$mysqlConnectionPool->prepare('SELECT * FROM `World` WHERE id = :id')->execute(['id' => randomInt()]);
-//    $request->respondJson($once->fetchRow());
-//});
+Route::define(Method::GET, '/db-readme', function (Request $request) use (&$dateFormatted) {
+    $once = Data::$mysqlConnectionPool->prepare('SELECT * FROM `World` WHERE id = :id')->execute(['id' => \randomInt()]);
+    $request->respondJson($once->fetchRow());
+});
 
-//Route::define(Method::GET, '/favicon.ico', function (Request $request) {
-//    $request->respond(Data::$faviconBinary, ['Content-Type' => 'image/x-icon']);
-//});
+Route::define(Method::GET, '/favicon.ico', function (Request $request) {
+    $request->respond(Data::$faviconBinary, ['Content-Type' => 'image/x-icon']);
+});
 
 class Data
 {

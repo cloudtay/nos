@@ -13,15 +13,12 @@
         <th>id</th>
         <th>message</th>
     </tr>
-
-    <?php
-    foreach ($rows as $row): ?>
+    <?php foreach ($rows as $row): ?>
     <tr>
         <td><?= htmlspecialchars($row['id']) ?></td>
         <td><?= htmlspecialchars($row['message']) ?></td>
     </tr>
     <?php endforeach; ?>
-
 </table>
 </body>
 </html>

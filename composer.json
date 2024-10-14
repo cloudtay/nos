@@ -1,5 +1,6 @@
 {
   "name": "cloudtay/nos",
+  "type": "project",
   "license": "MIT",
   "description": "nos for ripple",
   "version": "v0.1",
@@ -10,6 +11,7 @@
     }
   ],
   "require": {
+    "cloudtay/ripple": "^0.7",
     "cloudtay/nos-library": "*",
     "amphp/mysql": "^3.0.0"
   },
